@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расходные материалы</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s;
+        }
+        li:hover {
+            background-color: #e9ecef;
+        }
+        .part-name {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .part-category {
+            color: #6c757d;
+        }
+        .part-price {
+            color: #28a745;
+        }
+        .part-description {
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Список расходных материалов </h1>
+    </header>
+    <div class="container">
+        <ul>
+            {% for part in parts %}
+                <li>
+                    <span class="part-name">{{ part.name }}</span><br>
+                    <span class="part-category">Категория: {{ part.category }}</span><br>
+                    <span class="part-price">Цена: {{ part.price }} руб.</span><br>
+                    <span class="part-description">Описание: {{ part.description }}</span>
+                </li>
+            {% empty %}
+                <li>Нет доступных расходных материалов.</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <footer>
+        <p>&copy; 2024 Все права защищены.</p>
+    </footer>
+</body>
+</html>
